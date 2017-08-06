@@ -15,6 +15,9 @@ public class Event {
     private String message;
     private ZonedDateTime when;
 
+    public Event() {
+    }
+
     public Event(Long id, ZonedDateTime when) {
         this(id, "**" + id + "**", when);
     }

@@ -25,12 +25,11 @@ public class EventControllerFT {
     @Autowired
     EventController controller;
 
-    private MockMvc mockMvc;
     private WebTestClient client;
 
     @Before
     public void setup() {
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
+        MockMvcBuilders.webAppContextSetup(this.wac).build();
         client = WebTestClient.bindToController(controller).build();
     }
 
@@ -43,7 +42,6 @@ public class EventControllerFT {
                 .expectStatus().isOk()
                 .expectHeader().contentType(MediaType.APPLICATION_JSON_UTF8)
                 .expectBody(Event.class);
-
     }
 
     @Test
@@ -52,8 +50,6 @@ public class EventControllerFT {
                 .accept(TEXT_EVENT_STREAM)
                 .exchange()
                 .expectStatus().isOk()
-                .expectHeader().contentType(TEXT_EVENT_STREAM)
-                .expectBody(Event.class);
-
+                .expectHeader().contentType(TEXT_EVENT_STREAM);
     }
 }
