@@ -25,7 +25,6 @@ public class WebClientService {
                     .flux()
                     .flatMap(cr -> cr.bodyToFlux(Event.class))
                     .subscribe(System.out::println);
-
         };
     }
 

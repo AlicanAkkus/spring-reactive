@@ -51,5 +51,7 @@ public class EventControllerFT {
                 .exchange()
                 .expectStatus().isOk()
                 .expectHeader().contentType(TEXT_EVENT_STREAM);
+
+
     }
 }
