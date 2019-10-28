@@ -1,6 +1,6 @@
 package com.caysever.reactive.server;
 
-import com.caysever.reactive.Event;
+import com.caysever.reactive.model.Event;
 import com.caysever.reactive.server.controller.EventController;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
-import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -34,7 +33,7 @@ public class EventControllerFT {
     }
 
     @Test
-    public void should_get_events_by_id() throws Exception {
+    public void should_get_events_by_id() {
         client.get()
                 .uri("/events/42")
                 .accept(MediaType.APPLICATION_JSON)
@@ -45,13 +44,11 @@ public class EventControllerFT {
     }
 
     @Test
-    public void should_get_events() throws Exception {
+    public void should_get_events() {
         client.get().uri("/events/")
                 .accept(TEXT_EVENT_STREAM)
                 .exchange()
                 .expectStatus().isOk()
                 .expectHeader().contentType(TEXT_EVENT_STREAM);
-
-
     }
 }

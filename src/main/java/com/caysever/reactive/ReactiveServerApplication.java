@@ -1,4 +1,4 @@
-package com.caysever.reactive.server;
+package com.caysever.reactive;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

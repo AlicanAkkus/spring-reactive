@@ -1,14 +1,7 @@
-package com.caysever.reactive;
-
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+package com.caysever.reactive.model;
 
 import java.time.ZonedDateTime;
 
-@Data
-@Getter
-@Setter
 public class Event {
 
     private Long id;
@@ -25,6 +18,30 @@ public class Event {
     public Event(Long id, String message, ZonedDateTime when) {
         this.id = id;
         this.message = message;
+        this.when = when;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public ZonedDateTime getWhen() {
+        return when;
+    }
+
+    public void setWhen(ZonedDateTime when) {
         this.when = when;
     }
 
